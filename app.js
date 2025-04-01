@@ -8,6 +8,8 @@ const app = express();
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
+
+app.use(express.json());
 app.post("/user", async (req, res) => {
   try {
     const { name, email, password } = req.body;
