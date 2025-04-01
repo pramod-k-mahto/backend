@@ -31,6 +31,16 @@ app.post("/user", async (req, res) => {
   }
 });
 
+app.get("/users", async (req, res) => {
+    try {
+      const users = await User.find({});
+      res.json(users);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ msg: "Server Error" });
+    }
+})
+
 app.listen(9000, () => {
   console.log("Server is running on port 9000");
 });
